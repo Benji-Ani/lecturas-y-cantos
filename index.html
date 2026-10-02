@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecturas y Cantos (BENJAMIN)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px;
+    padding-top: 190px; /* Espacio responsivo para la barra fija */
+    background-color: #f5f5f5;
+}
+
+/* Barra superior responsive */
+.barra-superior {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #1976d2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.3);
+    z-index: 9999;
+}
+
+.barra-superior h1 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+}
+
+/* Controles de Buscador y Navegación */
+.controles-superiores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+}
+
+.caja-buscar {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    outline: none;
+    flex: 1 1 200px; /* Crece y se adapta al ancho disponible */
+    max-width: 350px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.botones-navegacion {
+    display: flex;
+    gap: 8px;
+}
+
+.botones-navegacion button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 25px;
+    background: #ffffff;
+    color: #1976d2;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,.2);
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.botones-navegacion button:hover {
+    background: #e0e0e0;
+}
+
+/* Grid de Antífonas: 2 columnas en PC y pantallas medianas */
+.contenedor-antifonas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Ajuste para pantallas de celular */
+@media (max-width: 650px) {
+    body {
+        padding-top: 175px;
+    }
+    
+    .barra-superior h1 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .caja-buscar {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    
+    .botones-navegacion button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .contenedor-antifonas {
+        grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+    }
+}
+
+.seccion {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.seccion h2 {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: #333;
+}
+
+.imagen-antifona {
+    width: 100%;
+    height: auto;
+    border: 3px solid #555;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+audio {
+    width: 100%;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="barra-superior">
+    <h1>📖 Lecturas y Cantos (BENJAMIN)</h1>
+    <div class="controles-superiores">
+        <input type="text" id="buscador" class="caja-buscar" placeholder="🔍 Buscar antífona..." onkeyup="filtrarAntifonas()">
+        <div class="botones-navegacion">
+            <button onclick="scrollArriba()">⬆️ Subir</button>
+            <button onclick="scrollAbajo()">⬇️ Bajar</button>
+        </div>
+    </div>
+</div>
+
+<div class="contenedor-antifonas" id="contenedor">
+
+    <div class="seccion">
+        <h2>Antífona 01</h2>
+        <img src="Antifona_01.jpg" class="imagen-antifona" alt="Antífona 12">
+        <audio controls>
+            <source src="Salmo_01.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="seccion">
+        <h2>Antífona 02</h2>
+        <img src="Antifona_02.jpg" class="imagen-antifona" alt="Antífona 13">
+        <audio controls>
+            <source src="Salmo_02.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="seccion">
+        <h2>Antífona 03</h2>
+        <img src="Antifona_03.jpg" class="imagen-antifona" alt="Antífona 14">
+        <audio controls>
+            <source src="Salmo_03.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="seccion">
+        <h2>Antífona 04</h2>
+        <img src="Antifona_04.jpg" class="imagen-antifona" alt="Antífona 15">
+        <audio controls>
+            <source src="Salmo_04.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="seccion">
+        <h2>Antífona 05</h2>
+        <img src="Antifona_05.jpg" class="imagen-antifona" alt="Antífona 16">
+        <audio controls>
+            <source src="Salmo_05.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="seccion">
+        <h2>Antífona 06</h2>
+        <img src="Antifona_06.jpg" class="imagen-antifona" alt="Antífona 17">
+        <audio controls>
+            <source src="Salmo_06.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="seccion">
+        <h2>Antífona 07</h2>
+        <img src="Antifona_07.jpg" class="imagen-antifona" alt="Antífona 18">
+        <audio controls>
+            <source src="Salmo_07.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="seccion">
+        <h2>Antífona 08</h2>
+        <img src="Antifona_08.jpg" class="imagen-antifona" alt="Antífona 19">
+        <audio controls>
+            <source src="Salmo_08.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="seccion">
+        <h2>Antífona 09</h2>
+        <img src="Antifona_09.jpg" class="imagen-antifona" alt="Antífona 20">
+        <audio controls>
+            <source src="Salmo_09.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="seccion">
+        <h2>Antífona 10</h2>
+        <img src="Antifona_10.jpg" class="imagen-antifona" alt="Antífona 21">
+        <audio controls>
+            <source src="Salmo_10.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+<div class="seccion">
+        <h2>Antífona 11</h2>
+        <img src="Antifona_11.jpg" class="imagen-antifona" alt="Antífona 22">
+        <audio controls>
+            <source src="Salmo_11.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+</div>
+
+<script>
+function scrollArriba() {
+    window.scrollBy({
+        top: -window.innerHeight,
+        behavior: "smooth"
+    });
+}
+
+function scrollAbajo() {
+    window.scrollBy({
+        top: window.innerHeight,
+        behavior: "smooth"
+    });
+}
+
+function filtrarAntifonas() {
+    let input = document.getElementById('buscador').value.toLowerCase();
+    let secciones = document.getElementsByClassName('seccion');
+
+    for (let i = 0; i < secciones.length; i++) {
+        let titulo = secciones[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
+        if (titulo.includes(input)) {
+            secciones[i].style.display = "";
+        } else {
+            secciones[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
